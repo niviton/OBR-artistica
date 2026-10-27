@@ -1,0 +1,41 @@
+# Configuração do telão — edite à vontade, não precisa mexer no código.
+
+camera:
+  indice: 0              # 0 = webcam do notebook; 1, 2... = câmeras USB
+  largura: 640
+  altura: 480
+
+gestos:
+  tempo_estavel: 0.5     # segundos que o número precisa ficar igual para trocar de cena
+  confianca_deteccao: 0.7
+  confianca_rastreamento: 0.7
+  inverter_lateralidade: false   # true se "esquerda/direita" aparecer trocado
+
+transicao:
+  fade: 0.6              # duração do fade entre cenas (segundos)
+
+porta:                   # cena 2
+  tempo_desafio: 3.0     # segundos segurando 2 dedos para abrir a porta
+  velocidade_descida: 0.35   # quanto do progresso perde por segundo ao soltar (0 a 1)
+
+final:                   # cena 5
+  fade_final: 4.0        # duração do fade-out ao apertar Enter
+
+audio:
+  ativado: true          # false = tudo mudo (tecla S alterna durante a peça)
+  volume: 0.7            # 0.0 a 1.0
+  fade_ms: 500           # fade de entrada/saída dos sons
+  repetir_som_cena: false   # true = som.wav/mp3 da cena toca em loop
+
+video:
+  fps_alvo: 30
+  tela_cheia: true
+  escala_suave: true     # false = escala mais rápida (use se o notebook for lento)
+
+hud:
+  mostrar: true          # H alterna durante a peça
+  canto_mini_camera: 1   # 0 sup. esq., 1 sup. dir., 2 inf. dir., 3 inf. esq.
+  fracao_mini_camera: 0.25
+
+teste:
+  duracao_cena: 3.0      # usado por --test-scenes

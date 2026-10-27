@@ -1,0 +1,28 @@
+{
+  "espera": {
+    "texto": "Levante 1 dedo para começar"
+  },
+  "cena1": {
+    "titulo": "Bem-vindos ao Castelo!",
+    "subtitulo": "Era uma vez, numa noite estrelada..."
+  },
+  "cena2": {
+    "dica": "Mantenha 2 dedos para abrir a porta",
+    "mensagem": "A porta se abriu!"
+  },
+  "cena3": {
+    "falas": [
+      "Oi, pessoal! Que bom que vocês vieram!",
+      "Hoje o castelo está cheio de surpresas...",
+      "Vamos descobrir juntos?"
+    ],
+    "segundos_por_fala": 4.0
+  },
+  "cena4": {
+    "texto": "Hora do banho! Glub, glub!"
+  },
+  "cena5": {
+    "texto_final": "Obrigado!",
+    "subtitulo": "Até a próxima aventura!"
+  }
+}

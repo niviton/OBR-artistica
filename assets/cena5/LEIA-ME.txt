@@ -1,0 +1,6 @@
+Coloque aqui os arquivos da cena 5 (todos opcionais):
+  fundo.png ou fundo.jpg    imagem de fundo (qualquer tamanho; é ajustada a 1920x1080)
+  video.mp4                 vídeo de fundo em loop (tem prioridade sobre o fundo)
+  personagem.png            personagem com fundo transparente (substitui o genérico)
+  som.wav ou som.mp3        som da cena
+O que faltar é gerado automaticamente por código. Não precisa mexer no código.
