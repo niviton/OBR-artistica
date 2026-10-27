@@ -46,9 +46,8 @@ def on_gesture_change(numero):
     print(f"[gesto] {numero} -> {cena}")
     _app.cenas.ir_para(cena)
 
-    # TODO (futuro) — ESP32: enviar o número/cena por Serial ou Wi-Fi, ex.:
-    #   esp32.write(f"{numero}\n".encode())          # pyserial
-    #   requests.post("http://esp32.local/cena", json={"cena": cena})
+    # ESP32: o pilar gira sozinho quando a cena entra (SceneManager -> core/esp32.py).
+    #   Ângulos por cena em config.yaml (esp32.angulos). Sempre Bluetooth: Wi-Fi é proibido na OBR.
 
     # TODO (futuro) — Spike Prime (Pybricks): mandar o comando via Bluetooth (BLE), ex.:
     #   spike.enviar(numero)   # ver projeto Spiker-pybrinks
@@ -118,6 +117,10 @@ class App:
         self.frame_camera = None
         self.indice_camera = int(cfg["camera"]["indice"])
         self.fps = 0.0
+        from core.esp32 import Esp32Pilar
+        self.esp32 = Esp32Pilar(cfg["esp32"])
+        if not modo_teste:
+            self.esp32.iniciar()   # conecta ao ESP32 em segundo plano
         if not modo_teste:   # a câmera abre em paralelo enquanto as cenas são geradas
             self._iniciar_camera()
 
@@ -307,6 +310,7 @@ class App:
     def fechar(self):
         if self.camera:
             self.camera.parar()
+        self.esp32.parar()
         if self.detector:
             self.detector.fechar()
         pygame.quit()

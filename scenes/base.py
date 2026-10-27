@@ -188,6 +188,9 @@ class SceneManager:
             self.atual.exit()
             self.atual.on_exit_hook()
         self.atual = self.cenas[nome]
+        esp32 = getattr(self.app, "esp32", None)
+        if esp32:   # gira o pilar junto com a troca de cena (meio do fade)
+            esp32.cena_entrou(nome)
         self.atual.enter()
         self.atual.on_enter_hook()
 

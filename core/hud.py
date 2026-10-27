@@ -121,6 +121,9 @@ class Hud:
             (f"Cena: {app.cenas.nome_atual} — {cena.titulo if cena else ''}", 26, (255, 255, 255)),
             (f"FPS {app.fps:.0f}  ·  câmera {app.indice_camera} {cam}  ·  som {'ligado' if app.audio.ativo else 'mudo'}",
              22, (230, 230, 240)),
+            (f"ESP32 pilar: {app.esp32.status}"
+             + (f"  ·  {app.esp32.angulo_enviado}°" if app.esp32.angulo_enviado is not None else ""),
+             22, (130, 230, 160) if app.esp32.status == "conectado" else (230, 190, 120)),
             ("H esconde HUD · 1-5 cenas · 0 espera · R reinicia · Enter final", 18, (190, 190, 205)),
             ("C câmera · S som · F tela cheia · P canto · M mini câmera · L pontos", 18, (190, 190, 205)),
         ]

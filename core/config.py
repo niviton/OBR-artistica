@@ -19,6 +19,8 @@ PADRAO = {
     "video": {"fps_alvo": 30, "tela_cheia": True, "escala_suave": True},
     "hud": {"mostrar": True, "canto_mini_camera": 1, "fracao_mini_camera": 0.25},
     "teste": {"duracao_cena": 3.0},
+    "esp32": {"ativado": True, "nome": "PilarCastelo",
+              "angulos": {"cena1": 180, "cena2": 0, "cena3": 90}},
 }
 
 FALAS_PADRAO = {

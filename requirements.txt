@@ -3,3 +3,4 @@ mediapipe>=0.10.14
 numpy
 pygame>=2.5
 PyYAML>=6.0
+bleak>=0.22

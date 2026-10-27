@@ -103,6 +103,30 @@ texto do banho, "Obrigado!" e o subtítulo final). Salve o arquivo em UTF-8.
 
 O mapeamento gesto → cena fica em `GESTO_PARA_CENA`, no topo do `main.py`.
 
+## Pilar giratório (ESP32 + servo)
+
+Um servo no ESP32 gira o pilar do cenário junto com a troca de cena, via **Bluetooth BLE**
+(Wi-Fi é proibido na OBR):
+
+| Cena | Ângulo |
+|---|---|
+| cena2 (portão) | 0° |
+| cena3 (menino) | 90° |
+| cena1 (castelo/ratinho) | 180° |
+| cena4, cena5, espera | o pilar fica onde está |
+
+1. Ligações: sinal do servo no **GPIO 13**; VCC do servo em **5 V de fonte/bateria externa**;
+   GND da fonte ligado ao **GND do ESP32** (terra em comum).
+2. Arduino IDE: instale a placa "esp32" (Espressif) e a biblioteca **ESP32Servo**.
+3. Abra `esp32/pilar_servo/pilar_servo.ino`, escolha "ESP32 Dev Module" e grave.
+   Teste pelo Monitor Serial (115200): digite `0`, `90` ou `180`.
+4. No notebook, **ligue o Bluetooth** e rode `python main.py`. Ele procura o ESP32 pelo nome
+   `PilarCastelo`, conecta e reconecta sozinho. O HUD mostra "ESP32 pilar: conectado · 90°".
+   O LED azul da placa acende quando conectado.
+
+Ângulos e nome ficam em `config.yaml` (`esp32`). Velocidade do giro: `MS_POR_GRAU` no `.ino`.
+Se o pilar não chegar exatamente em 0°/180°, ajuste `PULSO_MIN_US`/`PULSO_MAX_US`.
+
 ## Estrutura
 
 ```

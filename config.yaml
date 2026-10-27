@@ -37,5 +37,13 @@ hud:
   canto_mini_camera: 1   # 0 sup. esq., 1 sup. dir., 2 inf. dir., 3 inf. esq.
   fracao_mini_camera: 0.25
 
+esp32:                   # pilar giratório (esp32/pilar_servo/pilar_servo.ino), via Bluetooth BLE
+  ativado: true
+  nome: PilarCastelo     # igual ao NOME_BLE do .ino
+  angulos:               # ângulo do pilar em cada cena (cena fora da lista = pilar não se mexe)
+    cena1: 180           # castelo / ratinho
+    cena2: 0             # portão
+    cena3: 90            # menino
+
 teste:
   duracao_cena: 3.0      # usado por --test-scenes
